@@ -14,17 +14,17 @@ I recommend using it only if you dont care about subscribing/unsubscribing timin
 
 # How it works?
 
-The main problem with any standard event system is timing of event posting.
+The main problem with any standard event system is timing of event posting
 
-There are 2 reasons of this problem.
+There are 2 reasons of this problem
 
-The first reason is time for finding collection of listeners for some posted event.
+The first reason is timing for finding collection of listeners for some posted event
 
-The second reason is time for iterating and invoking every listener from this collection.
+The second reason is timing for iterating and invoking every listener from this collection
 
-Solution to the first problem is binding collection as static thing directly to class of event.
+Solution to the first problem is binding collection as static thing directly to class of event
 
-Solution to the second problem is combining lambdas of listeners from the collection into one, but it may cause long timing for subscribing/unsubscribing listeners, but we dont case okay?
+Solution to the second problem is combining lambdas of listeners from the collection into one, but it may cause long timing for subscribing/unsubscribing listeners, but we dont care okay?
 
 # Examples
 
