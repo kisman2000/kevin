@@ -2,7 +2,7 @@
 
 # Kevin
 
-Extremely fast kotlin event system
+Extremely fast event system
 
 Originally made for `LavaHack`
 
@@ -29,6 +29,7 @@ Solution to the second problem is combining lambdas of listeners from the collec
 # Examples
 
 ### Creating class of event
+#### Kotlin
 
 </div>
 
@@ -46,14 +47,29 @@ class TestEvent {
 
 <div align="center">
 
+#### Java
+
+</div>
+
+```java
+import lavahack.kevin.EventBus;
+
+public record TestEvent(/*...*/) {
+    //
+    
+    public static final EventBus<TestEvent> BUS = new EventBus<>();
+}
+```
+
+<div align="center">
+
 ### Creating listeners
+#### Kotlin
 
 </div>
 
 ```kotlin
 import lavahack.kevin.Listener
-
-//...
 
 val listenerWithDefaultPriority = Listener<TestEvent> { event -> /*action or idk*/ }
 val listenerWithCustomPriority = Listener<TestEvent>(/*integer that means priority*/) { event -> /*action or idk*/ }
@@ -61,7 +77,21 @@ val listenerWithCustomPriority = Listener<TestEvent>(/*integer that means priori
 
 <div align="center">
 
+#### Java
+
+</div>
+
+```java
+import lavahack.kevin.Listener;
+
+Listener<TestEvent> listenerWithDefaultPriority = new Listener<>(event -> /*action or idk*/);
+Listener<TestEvent> listenerWithCustomPriority = new Listener<>(/*integer that means priority*/, event -> /*action or idk*/);
+```
+
+<div align="center">
+
 ### Actions with event
+#### Kotlin
 
 </div>
 
@@ -78,26 +108,32 @@ TestEvent.BUS.post(event)
 
 <div align="center">
 
+#### Java
 
+</div>
 
-Download deobfuscator4000 or build them yourself, run it, select paths in the UI, press `Decompile` button and enjoy src of mod without mappings!
+```java
+//Subscribing listener
+TestEvent.BUS.subscribe(listener);
 
-# Benchmarks
+//Unsubscribing listener
+TestEvent.BUS.unsubscribe(listener);
 
-This benchmark shows average time of posting test event when 16 listeners are subscribed
+//Posting event
+TestEvent.BUS.post(event);
+```
 
-| Event system  | Average time(ns/op) |
-|---------------|---------------------|
-| Kevin         | 0.674 ± 0.082       |
-| Norbit        | 1.221 ± 0.223       |
-| Orbit         | 1.627 ± 0.108       |
+<div align="center">
+
+# Benchmark
 
 This benchmark shows average time of posting test event when 200 listeners are subscribed
 
-| Event system  | Average time(ns/op) |
-|---------------|---------------------|
-| Kevin         | 0.687 ± 0.237       |
-| Norbit        | 1.122 ± 0.122       |
-| Orbit         | 1.823 ± 0.099       |
+| Event system | Average time(ns/op) |
+|--------------|---------------------|
+| Kevin        | 7387 ± 317          |
+| Norbit       | 19455 ± 17022       |
+| Orbit        | 17685 ± 8369        |
+| Alpine       | 57519 ± 330174      |
 
 </div>
