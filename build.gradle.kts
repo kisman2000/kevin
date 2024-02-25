@@ -21,8 +21,10 @@ publishing {
         create<MavenPublication>("maven") {
             groupId = "lavahack"
             artifactId = "kevin"
-//            version = "2.1"
-//            from(components["java"])
+
+            artifact(tasks.jar) {
+                classifier = "core"
+            }
         }
     }
 }
