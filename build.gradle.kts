@@ -18,8 +18,11 @@ java {
 
 publishing {
     publications {
-        registering(MavenPublication::class) {
-            from(components["java"])
+        create<MavenPublication>("maven") {
+            groupId = "lavahack"
+            artifactId = "kevin"
+//            version = "2.1"
+//            from(components["java"])
         }
     }
 }
