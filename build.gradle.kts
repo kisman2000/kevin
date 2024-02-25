@@ -1,9 +1,14 @@
 plugins {
     id("java")
+    id("maven-publish")
     application
 }
 
-group = "ksmn"
+repositories {
+    mavenCentral()
+}
+
+group = "com.github.kisman2000"
 version = "2.0"
 
 java {
