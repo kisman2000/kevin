@@ -10,6 +10,7 @@ plugins {
 }
 
 rootProject.name = "kevin"
-include("simple")
-include("orbit-test")
-include("benchmarks")
+
+if(!System.getenv("JITPACK").toBoolean()) {
+    include("benchmarks")
+}
