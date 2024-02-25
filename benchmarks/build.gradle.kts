@@ -11,6 +11,7 @@ version = "1.0"
 repositories {
     mavenCentral()
     maven("https://maven.meteordev.org/releases")
+    maven("https://jitpack.io")
 }
 
 dependencies {
@@ -22,7 +23,8 @@ dependencies {
     implementation("org.openjdk.jmh:jmh-generator-annprocess:1.37")
     jmhAnnotationProcessor("org.openjdk.jmh:jmh-generator-annprocess:1.37")
 //    implementation(files("../build/libs/kevin-1.0.jar"))
-    jmhImplementation(files("libs/norbit-1.1.0.jar"))
+    implementation(files("libs/norbit-1.1.0.jar"))
+    implementation("com.github.ZeroMemes:Alpine:3.1.0")
 }
 java {
     sourceCompatibility = JavaVersion.VERSION_17

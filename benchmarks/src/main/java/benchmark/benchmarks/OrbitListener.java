@@ -1,4 +1,4 @@
-package benchmarks;
+package benchmark.benchmarks;
 
 import meteordevelopment.orbit.listeners.IListener;
 
@@ -8,7 +8,7 @@ public class OrbitListener implements IListener {
     @Override
     public void call(Object event) {
         if(event instanceof OrbitEvent) {
-            ((OrbitEvent) event).blackhole.consume(Integer.bitCount(Integer.parseInt("123")));
+            ((OrbitEvent) event).blackhole().consume(Integer.bitCount(Integer.parseInt("123")));
         }
     }
 
