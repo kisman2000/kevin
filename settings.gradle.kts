@@ -10,7 +10,3 @@ plugins {
 }
 
 rootProject.name = "kevin"
-
-if(!System.getenv("JITPACK").toBoolean()) {
-    include("benchmarks")
-}
